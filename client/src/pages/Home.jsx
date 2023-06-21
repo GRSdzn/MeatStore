@@ -7,7 +7,6 @@ import Panel from '../components/Panel';
 import Skeleton from '../components/CartObject/Skeleton';
 import Sort from '../components/Sort';
 import ReactPaginate from 'react-paginate';
-// import { API_URL } from './api/api';
 import { API_URL } from '../api/api';
 
 const Home = () => {
@@ -37,7 +36,7 @@ const Home = () => {
       }
     };
     fetchData();
-    setCurrentPage(0); // добавляем сброс пагинации при изменении категории
+    setCurrentPage(0);
   }, [categoryId, sortType]);
 
   const meats = items.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage).map(obj => (
@@ -70,9 +69,6 @@ const Home = () => {
             Адекватное качество по реальной цене
           </p>
         </div>
-        {/* <div className="px-[100px] lp:px-0 py-8 lg:text-center">
-          <button type='button' className="bg-main p-4 rounded-lg text-white hover:font-bold duration-300">Вкусить</button>
-        </div> */}
       </div>
       <section className="bg-backgroundAll py-[8vh] px-[10vh] sm:px-0">
         <div className="text-left ">
