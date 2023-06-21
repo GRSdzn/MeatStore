@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  html {
+    font-family: 'Montserrat';
+  }
+}
+
+/* @media (max-width: 768px) {
+  .hidden {
+    display: none !important;
+  }
+
+  .block {
+    display: block !important;
+  }
+} */
