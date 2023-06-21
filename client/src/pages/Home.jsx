@@ -104,7 +104,6 @@ const Home = () => {
           </div>
         </section>
       </section>
-      {/* items.map((obj) => <CartObject key={obj.id} {...obj} />) */}
       <Panel />
     </div>
   )
