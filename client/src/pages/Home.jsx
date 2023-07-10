@@ -7,7 +7,6 @@ import Panel from '../components/Panel';
 import Skeleton from '../components/CartObject/Skeleton';
 import Sort from '../components/Sort';
 import ReactPaginate from 'react-paginate';
-import { API_URL } from '../api/api';
 
 const Home = () => {
   const [items, setItems] = useState([]);
@@ -21,13 +20,12 @@ const Home = () => {
   const itemsPerPage = 8; //Количество отображаемых на странице товаров
 
   useEffect(() => {
-    // const API_URL = 'https://gurzhapi.space/api';
     const fetchData = async () => {
       setIsLoading(true);
       const category = categoryId ? `category=${categoryId}&` : '';
       try {
         const response = await axios.get(
-          `${API_URL}/products/?${category}ordering=${sortType.sortProperty}`
+          `http://localhost:8000/api/products/?${category}ordering=${sortType.sortProperty}`
         );
         setItems(response.data);
         setIsLoading(false);
@@ -56,11 +54,12 @@ const Home = () => {
   const handlePageClick = ({ selected: selectedPage }) => {
     setCurrentPage(selectedPage);
   };
+
   return (
     <div>
       <div className="w-full h-[100vh] bg-no-repeat bg-cover bg-fixed bg-background ">
         <div className="flex flex-col px-[100px] lp:px-0 gap-4">
-          <h1 className="text-[#fff] text-[60px] text-left font-bold mt-[35vh] lg:text-center md:text-[40px] sm:text-[30px] sm:text-center">
+          <h1 className="text-[#fff] text-[60px] text-left font-bold mt-[35vh] sm:mt-[30vh] lg:text-center md:text-[40px] sm:text-[30px] sm:text-center">
             СВЕЖЕЕ МЯСО
             <br />ЗАЛОГ ЗДОРОВОГО
             <br />ЖЕЛУДКА
@@ -87,23 +86,25 @@ const Home = () => {
               {isLoading ? skeletons : meats}
             </div>
           </AnimatePresence>
-          <div className='mt-14'>
-            <ReactPaginate
-              previousLabel={'Назад'}
-              nextLabel={'Вперед'}
-              breakLabel={'...'}
-              pageCount={pageCount}
-              marginPagesDisplayed={2}
-              pageRangeDisplayed={3}
-              onPageChange={handlePageClick}
-              containerClassName={'flex gap-10 p-4 justify-center items-center text-white decoration-none'}
-              activeClassName={'bg-main rounded-lg text-white p-2'}
-              forcePage={currentPage} // устанавливаем значение currentPage для пагинации
-
-            />
+          <div className="mt-14">
+            {pageCount > 0 && ( // Add a check for pageCount > 0
+              <ReactPaginate
+                previousLabel={'Назад'}
+                nextLabel={'Вперед'}
+                breakLabel={'...'}
+                pageCount={pageCount}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={3}
+                onPageChange={handlePageClick}
+                containerClassName={'flex gap-10 p-4 justify-center items-center text-white decoration-none'}
+                activeClassName={'bg-main rounded-lg text-white p-2'}
+                forcePage={currentPage >= 0 && currentPage < pageCount ? currentPage : 0}
+              />
+            )}
           </div>
         </section>
       </section>
+      {/* items.map((obj) => <CartObject key={obj.id} {...obj} />) */}
       <Panel />
     </div>
   )

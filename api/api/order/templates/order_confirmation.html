@@ -1,0 +1,78 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Подтверждение заказа</title>
+  <style>
+    .wrapper {
+      font-family: "Roboto", sans-serif;
+      background-color: #ffffff;
+      padding: 20px;
+    }
+
+    .title_order {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .description_order {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 1.5;
+    }
+
+    .items-container {
+      margin-top: 20px;
+    }
+
+    .item {
+      border-top: 2px solid #838383;
+      padding: 10px;
+    }
+
+    .item h1 {
+      font-size: 16px;
+    }
+
+    .item p {
+      font-size: 14px;
+    }
+
+    a {
+      color: #ff7070;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div>
+      <img src="{% static 'path/to/logo.png' %}" alt="LOGO" />
+    </div>
+    <div>
+      <h1 class="title_order">Заказ принят</h1>
+      <div class="description_order">
+        <p>Здравствуйте {{ order.owner.get_full_name }}.</p>
+        <p>Мы получили ваш заказ! Спасибо, что пользуетесь услугами нашего сайта.</p>
+      </div>
+      <h1 class="title_order">Номер заказа: {{ order.id }}</h1>
+      <p class="text-muted">{{ order.placed_at }}</p>
+    </div>
+    <div class="items-container">
+      <h1 class="description_orders">ЗАКАЗЫ</h1>
+      {% for item in order_items %}
+      <div class="item">
+        <h1>{{ item.product.title }}</h1>
+        <p>Количество: {{ item.quantity }}</p>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="text-muted">Общая стоимость заказа: <b>{{ grand_total }}₽</b></p>
+    <p class="text-muted">Когда товар(ы) будут доступны к получению, мы позвоним вам на номер, указанный при регистрации.
+      <br />
+      С уважением <a href="https://meatmain.ru/">MeatMain.ru</a>
+    </p>
+  </div>
+</body>
+</html>

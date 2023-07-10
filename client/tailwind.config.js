@@ -37,7 +37,11 @@ module.exports = {
 
     screens: {
 
+      '2k': { min: '1439px' },
+      // => @media (min-width: 1440px) { ... }
+
       'header': { min: '768px' },
+      // => @media (min-width: 768px) { ... }
 
       '2xl': { max: '1535px' },
       // => @media (max-width: 1535px) { ... }

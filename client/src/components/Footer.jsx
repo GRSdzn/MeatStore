@@ -7,7 +7,7 @@ function Footer() {
       <footer className="p-4 bg-[#2E2E2E] py-[50px] pl-[6vh] pr-[6vh]">
         <div className="sm:flex-col sm:items-center sm:justify-between ">
           <button className="flex items-center mb-4 sm:mb-0 sm:flex-col">
-            <img className="mr-3 h-8" src={Logo} />
+            <img className="mr-3 h-8" src={Logo} alt='img' />
             <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">Мясная лавка</span>
           </button>
           <ul className="flex flex-wrap items-center mb-6 text-sm text-gray-400 sm:mb-0 sm:flex-col sm:text-right sm:items-start gap-2">

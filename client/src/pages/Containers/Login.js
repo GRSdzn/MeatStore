@@ -35,7 +35,7 @@ const Login = ({ login, isAuthenticated }) => {
       <form onSubmit={onSubmit}>
         <div className="form-group">
           <input
-            className="rounded-lg px-2 py-1 w-full  text-gray-700 my-3"
+            className="rounded-lg px-2 py-1 sm:w-full w-[50%]  text-gray-700 my-3"
             type='email'
             placeholder='email'
             name='email'
@@ -46,7 +46,7 @@ const Login = ({ login, isAuthenticated }) => {
         </div>
         <div className="form-group">
           <input
-            className="rounded-lg px-2 py-1 w-full  text-gray-700 my-3"
+            className="rounded-lg px-2 py-1 sm:w-full w-[50%]  text-gray-700 my-3"
             type='password'
             placeholder='Пароль'
             name='password'

@@ -13,7 +13,7 @@ const Signup = ({ signup, isAuthenticated }) => {
     email: '',
     password: '',
     re_password: '',
-    agreementChecked: false // Добавлено новое состояние для чекбокса
+    agreementChecked: false
   });
 
   const { first_name, last_name, phone_number, email, password, re_password, agreementChecked } = formData;
@@ -53,7 +53,7 @@ const Signup = ({ signup, isAuthenticated }) => {
         <div className="form-group">
           <input
             required
-            className="rounded-lg px-2 py-1 w-full  text-gray-700 my-3"
+            className="rounded-lg px-2 py-1 sm:w-full w-[50%]  text-gray-700 my-3"
             type='email'
             placeholder='email*'
             name='email'
@@ -63,7 +63,7 @@ const Signup = ({ signup, isAuthenticated }) => {
         </div>
         <div className="form-group">
           <input
-            className="rounded-lg px-2 py-1 w-full  text-gray-700 my-3"
+            className="rounded-lg px-2 py-1 sm:w-full w-[50%]  text-gray-700 my-3"
             type='text'
             placeholder='Имя*'
             name='first_name'
@@ -74,7 +74,7 @@ const Signup = ({ signup, isAuthenticated }) => {
         </div>
         <div className="form-group">
           <input
-            className="rounded-lg px-2 py-1 w-full  text-gray-700 my-3"
+            className="rounded-lg px-2 py-1 sm:w-full w-[50%]  text-gray-700 my-3"
             type='text'
             placeholder='Фамилия*'
             name='last_name'
@@ -85,8 +85,8 @@ const Signup = ({ signup, isAuthenticated }) => {
         </div>
         <div className="form-group">
           <input
-            className="rounded-lg px-2 py-1 w-full  text-gray-700 my-3"
-            type='text'
+            className="rounded-lg px-2 py-1 sm:w-full w-[50%]  text-gray-700 my-3"
+            type='number'
             pattern="\d{10,}"
             placeholder='Номер телефона* Не менее 10 цифр'
             name='phone_number'
@@ -95,9 +95,12 @@ const Signup = ({ signup, isAuthenticated }) => {
             required
           />
         </div>
+        <div className="mt-4">
+          <p className="text-gray-500 font-light">Пароль должен одержать в себе как минимум 1 заглавный и 1 строчный латинский символ</p>
+        </div>
         <div className="form-group">
           <input
-            className="rounded-lg px-2 py-1 w-full  text-gray-700 my-3"
+            className="rounded-lg px-2 py-1 sm:w-full w-[50%]  text-gray-700 my-3"
             type='password'
             placeholder='Пароль*'
             name='password'
@@ -109,7 +112,7 @@ const Signup = ({ signup, isAuthenticated }) => {
         </div>
         <div className="form-group">
           <input
-            className="rounded-lg px-2 py-1 w-full  text-gray-700 my-3"
+            className="rounded-lg px-2 py-1 sm:w-full w-[50%]  text-gray-700 my-3"
             type='password'
             placeholder='Повторите пароль*'
             name='re_password'

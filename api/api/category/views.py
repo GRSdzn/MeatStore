@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from .models import Category
 from .serializers import CategoryListSerializer, CategoryDetailSerializer
 from rest_framework import generics
@@ -12,18 +11,3 @@ class CategoryList(generics.ListAPIView):
 class CategoryDetail(generics.RetrieveAPIView):
     queryset = Category.objects.all()
     serializer_class = CategoryDetailSerializer
-
-
-class CategoryCreate(generics.CreateAPIView):
-    queryset = Category.objects.all()
-    serializer_class = CategoryListSerializer
-
-
-class CategoryUpdate(generics.UpdateAPIView):
-    queryset = Category.objects.all()
-    serializer_class = CategoryListSerializer
-
-
-class CategoryDelete(generics.DestroyAPIView):
-    queryset = Category.objects.all()
-    serializer_class = CategoryListSerializer

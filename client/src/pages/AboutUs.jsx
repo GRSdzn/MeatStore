@@ -5,11 +5,11 @@ import { IoIosPeople } from 'react-icons/io';
 const AboutUs = () => {
   return (
     <IconContext.Provider value={{ size: "5em", color: "#707070", className: "color-main" }}>
-      <section className="px-[10vh] py-40 min-h-[100vh] lg:px-14">
+      <section className="px-[10vh] py-40 min-h-[100vh] lg:px-10">
         <div>
           <div className="flex-wrap">
             <div className="flex">
-              <AiFillBook />
+              <AiFillBook className="sm:hidden" />
               <h2 className="text-secondary font-bold text-[60px] mb-12 bg-backgroundAll md:text-center">Контакты</h2>
             </div>
             <div className=" grid grid-flow-col justify-between gap-12 lg:grid-flow-row lg:grid-cols-1">
@@ -17,7 +17,7 @@ const AboutUs = () => {
                 <ul className="text-white">
                   <li className="py-2">
                     <h1 className="text-gray-600 text-xl font-bold">Адрес</h1>
-                    <p>г. Москва, Автомобильный проезд дом 8, стр 6</p>
+                    <p>Вологодская область, Череповец, улица М. Горького, 30</p>
                   </li>
                   <li className="py-2">
                     <h1 className="text-gray-600 text-xl font-bold">Режим работы</h1>
@@ -25,7 +25,7 @@ const AboutUs = () => {
                   </li>
                   <li className="py-2">
                     <h1 className="text-gray-600 text-xl font-bold">Телефон</h1>
-                    <p>8 999 777 00 00</p>
+                    <p>+ 7 953 515-36-87</p>
                   </li>
                   <li className="py-2">
                     <h1 className="text-gray-600 text-xl font-bold">Электронная почта</h1>
@@ -40,26 +40,33 @@ const AboutUs = () => {
           </div>
           <div>
             <div className="flex">
-              <IoIosPeople />
+              <IoIosPeople className="sm:hidden" />
               <h2 className="text-secondary font-bold text-[60px] mb-12 bg-backgroundAll md:text-center">О нас</h2>
             </div>
             <div className="grid grid-flow-col justify-between gap-10 grid-cols-2 grid-rows-2 sm:grid-cols-1 sm:grid-rows-4 sm:gap-0">
               <div className="text-gray-400">
                 <h2 className="text-[25px] py-2">Все самое лучшее и свежее - Вам</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem facere sit tempore quas voluptate! Est ab dignissimos ipsa esse consequatur accusamus laboriosam excepturi voluptas quidem? Dolore minima dolor dolores deleniti.
-                  Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe, mollitia pariatur iste officiis accusamus harum omnis atque eos nobis dicta quasi cupiditate sed illum eaque possimus ut accusantium quibusdam odit?</p>
+                <p>
+                  Мясной магазин - это место, где вы найдете самое лучшее и свежее мясо. Наша компания специализируется на продаже высококачественного мяса и мясных изделий. У нас вы найдете широкий ассортимент продукции: говядину, баранину, птицу, дичь и многое другое.
+                </p>
               </div>
               <div className="text-gray-400">
-                <h2 className="text-[25px] py-2">Где мы берем хорошее мясо</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe, mollitia pariatur iste officiis accusamus harum omnis atque eos nobis dicta quasi cupiditate sed illum eaque possimus ut accusantium quibusdam odit?</p>
+                <h2 className="text-[25px] py-2">Максимальна доступность</h2>
+                <p>
+                  Мы ориентированы на долгосрочное сотрудничество. Поэтому мы всегда стремимся сделать нашу продукцию доступной для всех своих клиентов. У нас вы найдете не только самые свежие и качественные продукты, но и приятные цены.
+                </p>
               </div>
               <div className="text-gray-400">
                 <h2 className="text-[25px] py-2">Удовольствие от мяса, начиная с момента покупки</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe, mollitia pariatur iste officiis accusamus harum omnis atque eos nobis dicta quasi cupiditate sed illum eaque possimus ut accusantium quibusdam odit?</p>
+                <p>
+                  За время своей работы мы накопили большой опыт в мясной индустрии и научились приготавливать лучшие деликатесы. Посетите наш магазин и убедитесь сами в качестве наших продуктов и сервиса. Мы всегда стремимся предложить нашим клиентам только самое лучшее.
+                </p>
               </div>
               <div className="text-gray-400">
                 <h2 className="text-[25px] py-2">Только лучшее и отборное</h2>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Saepe, mollitia pariatur iste officiis accusamus harum omnis atque eos nobis dicta quasi cupiditate sed illum eaque possimus ut accusantium quibusdam odit?</p>
+                <p>
+                  Мы гордимся тем, что все наши продукты 100% натуральные и не содержат каких-либо добавок и консервантов. Мы работаем только с проверенными поставщиками, чтобы гарантировать качество нашей продукции.
+                </p>
               </div>
             </div>
           </div>

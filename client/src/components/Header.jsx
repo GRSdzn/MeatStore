@@ -5,7 +5,7 @@ import { logout } from '../actions/auth';
 
 import Search from './Search';
 
-import Basket from '../assets/img/basket.svg';
+import Cart from '../assets/img/cart.png';
 import Profile_icon from '../assets/img/profile-icon.svg';
 import Logo from '../assets/img/logo.svg';
 
@@ -27,15 +27,6 @@ function Header() {
     </Fragment>
   );
 
-  const authLinks = () => (
-    <div className="flex gap-10 items-center">
-      <h1 className='text-[#fff] text-[16px] hover:text-mainLight duration-300 cursor-pointer' href='#!' onClick={logoutUser}>Выход</h1>
-      <Link to='/MyPage'><img src={Profile_icon} alt="text" className="min-w-[30px] w-10" /></Link>
-      <Link to="/shopcart"><img src={Basket} alt="cart" className="min-w-[30px] w-[40px]" /></Link>
-    </div>
-  );
-
-
   const guestMobLinks = () => (
     <Fragment>
       <div className="flex flex-col items-center gap-4">
@@ -44,7 +35,20 @@ function Header() {
         <Link to="/Signup"><h1 className="text-white">Зарегистрироваться</h1></Link>
       </div>
     </Fragment>
-  )
+  );
+
+
+  const authLinks = () => (
+    <div className="flex gap-10 items-center">
+      <h1 className='text-[#fff] text-[16px] hover:text-mainLight duration-300 cursor-pointer' href='#!' onClick={logoutUser}>Выход</h1>
+      <Link to='/MyPage'><img src={Profile_icon} alt="text" className="min-w-[30px] w-10" /></Link>
+      <Link to="/shopcart" className="flex">
+        <img src={Cart} alt="cart" className="min-w-[30px] w-[40px]" />
+      </Link>
+      {/* <b className="text-white bg-main rounded-lg p-2 text-sm absolute right-5 top-20">+ Товар добавлен</b> */}
+    </div>
+  );
+
   const authMobLinks = () => (
     <div className="flex flex-col text-2xl items-center gap-4">
       <Link to='/MyPage'>Профиль</Link>
@@ -52,6 +56,13 @@ function Header() {
       <div className="border-2 border-main w-full rounded-full" />
       <h1 className='text-[#fff] hover:text-mainLight duration-300 cursor-pointer text-2xl' href='#!' onClick={logoutUser}>Выход</h1>
     </div>
+  );
+
+  const authMobHeader = () => (
+    <>
+      <Search />
+      <Link to="/shopcart"><img src={Cart} alt="cart" className="min-w-[35px]" /></Link>
+    </>
   );
 
   return (
@@ -81,9 +92,11 @@ function Header() {
               <span className="block h-0.5 w-7 animate-pulse bg-gray-600"></span>
               <span className="block h-0.5 w-7 animate-pulse bg-gray-600"></span>
             </div>
-            <Search />
-            <Link to="/shopcart"><img src={Basket} alt="cart" className="min-w-[35px]" /></Link>
 
+            {isAuthenticated ? authMobHeader() :
+              <>
+                <Link to="/login" className="text-gray-400">Войти</Link>
+              </>}
 
           </div>
           <div className={isNavOpen ? "duration-300 w-full h-[100vh] t-0 l-0 z-40 flex flex-col justify-evenly items:center sticky" : "hidden"} onClick={() => setIsNavOpen(false)}>
@@ -119,7 +132,8 @@ function Header() {
           </div>
         </section>
       </nav>
-      {isAuthenticated ? <button onClick={logoutUser}>Logout</button> : <Fragment></Fragment>}
+
+      {/* {isAuthenticated ? <button onClick={logoutUser}>Выйти</button> : <Fragment></Fragment>} */}
     </Fragment>
   );
 }

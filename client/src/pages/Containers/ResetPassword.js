@@ -32,7 +32,7 @@ const ResetPassword = ({ reset_password }) => {
   return (
     <div className="container px-[10vh] py-[8vh] min-h-[90vh] justify-around flex-wrap rounded-lg lg:px-14 lg:justify-between sm:justify-center sm:px-2 sm:grid-flow-row justify-items-center text-white">
       <div>
-        <h2 className="text-secondary font-bold text-[60px] mb-12 bg-backgroundAll md:text-center">Восстановление</h2>
+        <h2 className="text-secondary font-bold text-[60px] mb-12 bg-backgroundAll md:text-center sm:text-[45px]">Восстановление</h2>
         <p className="text-secondary md:text-center">Введите почту, на которую был создан аккаунт:</p>
       </div>
       <form onSubmit={onSubmit}>
